@@ -1,0 +1,102 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="shortcut icon" href="{% static 'exchange/img/favicon.png' %}" type="image/x-icon">
+    <link rel="stylesheet" href="{% static 'exchange/css/style.css' %}">
+    <title>Exchange Rate</title>
+</head>
+
+<body>
+    <header>
+        <a class="logo" href="/app/">
+            <img src="{% static 'exchange/img/favicon.png' %}" width="40px" alt="logo of exchange.io project">
+        </a>
+        <a class="api" href="/api/">API</a>
+    </header>
+    <main>
+        <section class="intro">
+            <h1>Exchange.io</h1>
+            <h3>Currency exchange rates
+            <br> and conversion API</h3>
+        </section>
+        <section class="converter">
+            <input type="text" class="input_base" placeholder="0">
+            <select name="base" class="select_base" disabled="disabled">
+                <option value="EUR">EUR</option>
+            </select>
+            <input type="button" class="go" value="Go" onclick="process()">
+            <input type="text" class="input_target" placeholder="0">
+            <select name="target" id="mySelect" class="select_target" onchange="clear()">
+                <option value="USD">USD</option>
+                <option value="JPY">JPY</option>
+                <option value="BGN">BGN</option>
+                <option value="CZK">CZK</option>
+                <option value="DKK">DKK</option>
+                <option value="GBP">GBP</option>
+                <option value="HUF">HUF</option>
+                <option value="PLN">PLN</option>
+                <option value="RON">RON</option>
+                <option value="SEK">SEK</option>
+                <option value="CHF">CHF</option>
+                <option value="ISK">ISK</option>
+                <option value="NOK">NOK</option>
+                <option value="HRK">HRK</option>
+                <option value="RUB">RUB</option>
+                <option value="TRY">TRY</option>
+                <option value="AUD">AUD</option>
+                <option value="BRL">BRL</option>
+                <option value="CAD">CAD</option>
+                <option value="CNY">CNY</option>
+                <option value="HKD">HKD</option>
+                <option value="IDR">IDR</option>
+                <option value="ILS">ILS</option>
+                <option value="INR">INR</option>
+                <option value="KRW">KRW</option>
+                <option value="MXN">MXN</option>
+                <option value="MYR">MYR</option>
+                <option value="NZD">NZD</option>
+                <option value="PHP">PHP</option>
+                <option value="SGD">SGD</option>
+                <option value="THB">THB</option>
+                <option value="ZAR">ZAR</option>
+            </select>
+        </section>
+        <section class="usage">
+            <h2>Usage:</h2>
+            <p>Get the latest currency xchange rates in JSON format.</p>
+            <div class="api_request">
+                <div class="tab">
+                    <div class="but red"></div>
+                    <div class="but yellow"></div>
+                    <div class="but green"></div>
+                </div>
+                <p class="request">
+                    <strong>GET</strong> 
+                    <input type="button" class="request_but" onclick="grap_latest()" value="https://exchange.io/api/letest/">
+                </p>
+                <div class="output">
+{<br>
+                        "base": <span class="base">EUR</span>,<br>
+                        "rates": <span class="rates"></span><br>
+}
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <span class="copyrights">&#169; 2018. All rights reserved.</span>
+        <a target="_blank" href="https://twitter.com/usef_bh" class="fontawesome-twitter"></a>
+        <a target="_blank" href="https://github.com/usef-bh" class="fontawesome-github"></a>
+        <a target="_blank" href="mailto:matt@gauntface.co.uk" class="fontawesome-envelope-alt"></a>
+    </footer>
+    <script src="{% static 'exchange/js/bundle.js' %}"></script>
+</body>
+
+</html>
