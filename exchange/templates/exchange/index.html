@@ -22,17 +22,19 @@
         <section class="intro">
             <h1>Exchange.io</h1>
             <h3>Currency exchange rates
-            <br> and conversion API</h3>
+                <br> and conversion API</h3>
         </section>
         <section class="converter">
             <input type="text" class="input_base" placeholder="0">
-            <select name="base" class="select_base" disabled="disabled">
-                <option value="EUR">EUR</option>
+            <select name="base" class="select_base">
+                <option value="EUR" selected>EUR</option>
+                <option value="USD" disabled>USD</option>
             </select>
             <input type="button" class="go" value="Go" onclick="process()">
             <input type="text" class="input_target" placeholder="0">
-            <select name="target" id="mySelect" class="select_target" onchange="clear()">
-                <option value="USD">USD</option>
+            <select name="target" id="mySelect" class="select_target" onchange="validate()">
+                <option value="USD" selected>USD</option>
+                <option value="EUR" disabled>EUR</option>
                 <option value="JPY">JPY</option>
                 <option value="BGN">BGN</option>
                 <option value="CZK">CZK</option>
@@ -67,25 +69,57 @@
             </select>
         </section>
         <section class="usage">
-            <h2>Usage:</h2>
-            <p>Get the latest currency xchange rates in JSON format.</p>
-            <div class="api_request">
-                <div class="tab">
-                    <div class="but red"></div>
-                    <div class="but yellow"></div>
-                    <div class="but green"></div>
+            <h2 class="section_title">Usage:</h2>
+            <section>
+                <p>Get the latest currency exchange rates in JSON format.</p>
+                <div class="api_request">
+                    <p class="request">
+                        <strong>GET</strong>
+                        <input type="button" class="request_but" onclick="grap_latest()" 
+                        value="https://exchange.io/api/latest/">
+                    </p>
+                    <pre class="output"></pre>
                 </div>
-                <p class="request">
-                    <strong>GET</strong> 
-                    <input type="button" class="request_but" onclick="grap_latest()" value="https://exchange.io/api/letest/">
-                </p>
-                <div class="output">
-{<br>
-                        "base": <span class="base">EUR</span>,<br>
-                        "rates": <span class="rates"></span><br>
-}
+            </section>
+            <br>
+            <section>
+                <p>Get historical rates for any day since 1999.</p>
+                <div class="api_request">
+                    <p class="request">
+                        <strong>GET</strong>
+                        <input type="button" class="request_but" onclick="grap_latest()" 
+                        value="https://exchange.io/api/yyyy-mm-dd">
+                    </p>
+                    <div class="output"></div>
                 </div>
-            </div>
+            </section>
+            <br>
+            <section>
+                <p>Rates are quoted against the EURO by default. To quote against a different currency use the
+                    <strong>base</strong> uri parameter in your request.</p>
+                <div class="api_request">
+                    <p class="request">
+                        <strong>GET</strong>
+                        <input type="button" class="request_but" onclick="grap_latest()" 
+                        value="https://exchange.io/api/latest?base=USD">
+                    </p>
+                    <div class="output"></div>
+                </div>
+            </section>
+            <br>
+            <section>
+                <p>Request specific exchange rates by setting the
+                    <strong>symbols</strong> parameter.</p>
+                <div class="api_request">
+                    <p class="request">
+                        <strong>GET</strong>
+                        <input type="button" class="request_but" onclick="grap_latest()" 
+                        value="https://exchange.io/api/latest?base=USD,symbols=EUR,GBP">
+                    </p>
+                    <div class="output"></div>
+                </div>
+            </section>
+
         </section>
 
     </main>

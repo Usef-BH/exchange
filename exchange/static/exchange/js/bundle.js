@@ -22,14 +22,17 @@ function process() {
     .catch(err => console.error(err));
 }
 
-select_target.addEventListener('change', clear);
+select_target.addEventListener('change', validate);
 
-function clear() {
-    console.log('hello');
-    if(parseInt(input_base.value) != 0) {
+function validate() {
+    let select = event.target;
+    event.stopPropagation();
+    console.log('hello: ', select.selectedOptions[0].value);
+    if(input_base.value != '' && parseInt(input_base.value) != 0 && parseInt(input_base.value).toString() != "NaN") {
         process();
     }
     else {
+        console.log(input_base.value);
         input_base.value = "";
         input_target.value = "";
     }
@@ -37,10 +40,10 @@ function clear() {
 
 function grap_latest() {
     fetch(`http://192.168.0.171:8000/api/latest`)
-    .then(resp => resp.text())
+    .then(resp => resp.json())
     .then(data => {
         console.log(data);
-        output.innerText = data;
+        output.innerText = JSON.stringify(data, undefined, 4);
         //rates.innerText = data.price;
         output.classList.add("show");
     })

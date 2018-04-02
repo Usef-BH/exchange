@@ -70,8 +70,13 @@ class Api(View):
         base = request.GET.get('base')
         target = request.GET.get('target')
         amount = request.GET.get('amount')
-        price = str(self.toEUR(target))
-        resp = float(amount) * float(price)
+        if base != 'EUR':
+            price = str(self.toEUR(base))
+            resp = float(amount) * (1/float(price))
+        else:
+            price = str(self.toEUR(target))
+            resp = float(amount) * float(price)
+        
         # print("The price is: {} with type: {}".format(price, type(price)))
         response = {
             "base": base,
@@ -132,32 +137,42 @@ class Latest(View):
             file.close()
         
     def parseData(self):
+        rates = {}
         resp = {}
         soup = BeautifulSoup(self.data, 'html.parser')
+        time = soup.find(time=re.compile(".*"))
         lst = soup.findAll(currency=re.compile(".*"))
         for item in lst:
-            resp[item['currency']] = float(item['rate'])
+            rates[item['currency']] = float(item['rate'])
         
-        return soup
+        resp['base'] = "EUR"
+        resp['date'] = time['time']
+        resp['rates'] = rates
+        return resp
+
+    def convert(self, base, symbols):
+
+        if symbols and base and base != "EUR":
+            targets = symbols.strip()
+            soup = BeautifulSoup(self.data, 'html.parser')
+            blocks = [soup.find(currency=target) for target in targets]
+            prices = {}
+            for block in blocks:
+                prices[block['currency']] = block['rate']
+            
+
+        soup = BeautifulSoup(self.data, 'html.parser')
+        print("soup: %s" % soup)
+        block = soup.find(currency=base)
+        print("block: %s" % block)
+        return block['rate']
 
     def get(self, request):
         self.get_data()
+
         resp = self.parseData()
         # print("The price is: {} with type: {}".format(price, type(price)))
 
         # data = serializers.serialize('json', response)
         # return HttpResponse(response, content_type='application/json')
-        return HttpResponse(resp)
-
-
-"""
-    def exchange(self, unit="MAD"):
-        if self.unit != "USD":
-            res1 = self.toUSD(self.unit)
-            res = self.toUSD(unit)
-            return "{} {} worth {} {}.".format(self.value, self.unit, self.value*float(res)/float(res1), unit)
-
-        res = self.toUSD()
-        return "{} {} worth {} {}.".format(self.value, self.unit, self.value*float(res), unit)
-
-"""
+        return JsonResponse(resp)
