@@ -37,8 +37,8 @@ body {
     margin-right: auto;
     color: #323232;
     word-wrap: break-word;
-    font-family: Futura,HelveticaNeue-Light,Helvetica Neue Light,Helvetica Neue,Helvetica,Open Sans,sans-serif;
-    font-size: 14px;
+    font-family: hallosans,Futura,HelveticaNeue-Light,Helvetica Neue Light,Helvetica Neue,Helvetica,Open Sans,sans-serif;
+    font-size: 16px;
     line-height: 1.5rem;
 }
 
@@ -94,13 +94,12 @@ main .intro {
 input {
     border: none;
     border-radius: 5px;
-    padding-left: 10px;
 }
 
 .go {
     grid-row: 2;
     grid-column: 1;
-    background-color: rgb(93, 165, 247);
+    background-color: rgb(213, 213, 213);
 }
 
 *:focus {
@@ -140,19 +139,37 @@ input {
     overflow: auto;
     width: 100%;
     background-color: black;
-    border-radius: 5px;
-    position: relative;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
 }
 
-.tab {
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 25px;
-    width: 100%;
+.buttons {
+    background-color: rgb(213, 213, 213);
+    border: 1px solid black;
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
-    background: rgb(213, 213, 213);
+    display: inline-block;
+    float: right;
+}
+
+.btn_copy {
+    padding: 7px;
+    font-size: 20px;
+    background: none;
+    border: none;
+}
+
+button {
+    cursor: pointer;
+}
+
+.send {
+    padding: 7px;
+    font-size: 20px;
+    background: none;
+    border: none;
+    border-right: 1px solid;
 }
 
 .but {
@@ -163,11 +180,12 @@ input {
     top: 7px;
 }
 
-.request {
+.request_latest, .request_hist, .request_base, .request_symbols {
     white-space: nowrap;
-    font-size: 14px;
+    display: inline;
+    font-size: 16px;
     color: #2196f3;
-    padding-left: 10px;
+    padding: 0px 10px;
 }
 
 .request_but {
@@ -190,7 +208,7 @@ input {
 
 /* width */
 ::-webkit-scrollbar {
-    width: 10px;
+    width: 8px;
     height: 6px;
 }
 
@@ -222,7 +240,6 @@ input {
     text-align: left;
     color: white;
     height: 200px;
-    overflow: auto;
     font-family: hallosans,Futura,HelveticaNeue-Light,Helvetica Neue Light,Helvetica Neue,Helvetica,Open Sans,sans-serif;
     font-size: 16px;
     padding-left: 15px;

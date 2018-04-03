@@ -72,52 +72,78 @@
             <h2 class="section_title">Usage:</h2>
             <section>
                 <p>Get the latest currency exchange rates in JSON format.</p>
-                <div class="api_request">
-                    <p class="request">
-                        <strong>Request:</strong>
-                        <input type="button" class="request_but" onclick="grap_latest()" 
-                        value="https://exchange.io/api/latest/">
-                    </p>
-                    <pre class="output"></pre>
-                </div>
+                <div class="buttons">
+                        <button class="send" onclick="grab_latest()" role="send request">	
+                                &#128640;
+                        </button>
+                        <button class="btn_copy" onclick="copy('.request_latest')" role="Copy to clopboard">
+                            &#128203;
+                        </button>                     
+                    </div>
+                    <div class="api_request">
+                            <!--input class="request_latest" value="https://exchange.io/api/latest/"-->
+                        <p class="request_latest">
+                            http://192.168.0.171:8000/api/latest/
+                        </p>
+                        <pre class="output"></pre>                        
+                    </div>
             </section>
             <br>
             <section>
                 <p>Get rates back to 90 days ago.</p>
-                <div class="api_request">
-                    <p class="request">
-                        <strong>Request:</strong>
-                        <input type="button" class="request_but" onclick="grab_hist()" 
-                        value="https://exchange.io/api/2018-03-14">
-                    </p>
-                    <pre class="output_hist"></pre>
-                </div>
+                    <div class="buttons">
+                        <button class="send" onclick="grab_hist()" role="send request">	
+                                &#128640;
+                        </button>
+                        <button class="btn_copy" onclick="copy('.request_hist')" role="Copy to clopboard">
+                            &#128203;
+                        </button>                     
+                    </div>
+                    <div class="api_request">
+                        <p class="request_hist">
+                            http://192.168.0.171:8000/api/2018-03-14
+                        </p>
+                        <pre class="output_hist"></pre>                        
+                    </div>
             </section>
             <br>
             <section>
                 <p>Rates are quoted against the EURO by default. To quote against a different currency use the
                     <strong>base</strong> uri parameter in your request.</p>
-                <div class="api_request">
-                    <p class="request">
-                        <strong>Request:</strong>
-                        <input type="button" class="request_but" onclick="grab_base()" 
-                        value="https://exchange.io/api/latest?base=USD">
-                    </p>
-                    <pre class="output_base"></pre>
-                </div>
+                    <div class="buttons">
+                            <button class="send" onclick="grab_base()" role="send request">	
+                                    &#128640;
+                            </button>
+                            <button class="btn_copy" onclick="copy('.request_base')" role="Copy to clopboard">
+                                &#128203;
+                            </button>                     
+                        </div>
+                        <div class="api_request">
+                            <p class="request_base">
+                                http://192.168.0.171:8000/api/latest?base=USD&symbols=EUR,GBP,JPY
+                            </p>
+                            <pre class="output_base"></pre>                        
+                        </div>
             </section>
             <br>
             <section>
                 <p>Request specific exchange rates by setting the
                     <strong>symbols</strong> parameter.</p>
-                <div class="api_request">
-                    <p class="request">
-                        <strong>Request:</strong>
-                        <input type="button" class="request_but" onclick="grab_symbols()" 
-                        value="https://exchange.io/api/latest?symbols=EUR,GBP">
-                    </p>
-                    <pre class="output_symbols"></pre>
-                </div>
+               
+                    <div class="buttons">
+                            <button class="send" onclick="grab_symbols()" role="send request">	
+                                    &#128640;
+                            </button>
+                            <button class="btn_copy" onclick="copy('.request_symbols')" role="Copy to clopboard">
+                                &#128203;
+                            </button>                     
+                        </div>
+                        <div class="api_request">
+                            <p class="request_symbols">
+                                http://192.168.0.171:8000/api/latest?symbols=USD,GBP
+                            </p>
+                            <pre class="output_symbols"></pre>                        
+                        </div>
             </section>
 
         </section>
