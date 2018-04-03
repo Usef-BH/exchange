@@ -213,7 +213,7 @@ input {
 }
 
 /* width */
-.output::-webkit-scrollbar {
+[class^='output']::-webkit-scrollbar {
     width: 8px;
 }
 

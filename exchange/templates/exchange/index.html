@@ -74,7 +74,7 @@
                 <p>Get the latest currency exchange rates in JSON format.</p>
                 <div class="api_request">
                     <p class="request">
-                        <strong>GET</strong>
+                        <strong>Request:</strong>
                         <input type="button" class="request_but" onclick="grap_latest()" 
                         value="https://exchange.io/api/latest/">
                     </p>
@@ -83,14 +83,14 @@
             </section>
             <br>
             <section>
-                <p>Get historical rates for any day since 1999.</p>
+                <p>Get rates back to 90 days ago.</p>
                 <div class="api_request">
                     <p class="request">
-                        <strong>GET</strong>
-                        <input type="button" class="request_but" onclick="grap_latest()" 
-                        value="https://exchange.io/api/yyyy-mm-dd">
+                        <strong>Request:</strong>
+                        <input type="button" class="request_but" onclick="grab_hist()" 
+                        value="https://exchange.io/api/2018-03-14">
                     </p>
-                    <div class="output"></div>
+                    <pre class="output_hist"></pre>
                 </div>
             </section>
             <br>
@@ -99,11 +99,11 @@
                     <strong>base</strong> uri parameter in your request.</p>
                 <div class="api_request">
                     <p class="request">
-                        <strong>GET</strong>
-                        <input type="button" class="request_but" onclick="grap_latest()" 
+                        <strong>Request:</strong>
+                        <input type="button" class="request_but" onclick="grab_base()" 
                         value="https://exchange.io/api/latest?base=USD">
                     </p>
-                    <div class="output"></div>
+                    <pre class="output_base"></pre>
                 </div>
             </section>
             <br>
@@ -112,11 +112,11 @@
                     <strong>symbols</strong> parameter.</p>
                 <div class="api_request">
                     <p class="request">
-                        <strong>GET</strong>
-                        <input type="button" class="request_but" onclick="grap_latest()" 
-                        value="https://exchange.io/api/latest?base=USD,symbols=EUR,GBP">
+                        <strong>Request:</strong>
+                        <input type="button" class="request_but" onclick="grab_symbols()" 
+                        value="https://exchange.io/api/latest?symbols=EUR,GBP">
                     </p>
-                    <div class="output"></div>
+                    <pre class="output_symbols"></pre>
                 </div>
             </section>
 

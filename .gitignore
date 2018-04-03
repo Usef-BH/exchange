@@ -1,3 +1,6 @@
 db.sqlite3
 exchange_rates*
 .vscode
+api/__pycache__
+exchange/__pycache__
+project/__pycache__

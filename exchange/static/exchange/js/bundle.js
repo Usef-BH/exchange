@@ -3,6 +3,9 @@ let input_target = document.querySelector('.input_target');
 let select_base = document.querySelector('.select_base');
 let select_target = document.querySelector('.select_target');
 let output = document.querySelector('.output');
+let output_hist = document.querySelector('.output_hist');
+let output_base = document.querySelector('.output_base');
+let output_symbols = document.querySelector('.output_symbols');
 let base = document.querySelector('.base');
 let rates = document.querySelector('.rates');
 
@@ -39,13 +42,49 @@ function validate() {
 }
 
 function grap_latest() {
-    fetch(`http://192.168.0.171:8000/api/latest`)
+    fetch('http://192.168.0.171:8000/api/latest')
     .then(resp => resp.json())
     .then(data => {
         console.log(data);
         output.innerText = JSON.stringify(data, undefined, 4);
         //rates.innerText = data.price;
         output.classList.add("show");
+    })
+    .catch(err => console.error(err));
+}
+
+function grab_hist() {
+    fetch('http://192.168.0.171:8000/api/2018-03-14')
+    .then(resp => resp.json())
+    .then(data => {
+        console.log(data);
+        output_hist.innerText = JSON.stringify(data, undefined, 4);
+        //rates.innerText = data.price;
+        output_hist.classList.add("show");
+    })
+    .catch(err => console.error(err));
+}
+
+function grab_base() {
+    fetch('http://192.168.0.171:8000/api/latest?symbols=USD,GBP')
+    .then(resp => resp.json())
+    .then(data => {
+        console.log(data);
+        output_base.innerText = JSON.stringify(data, undefined, 4);
+        //rates.innerText = data.price;
+        output_base.classList.add("show");
+    })
+    .catch(err => console.error(err));
+}
+
+function grab_symbols() {
+    fetch('http://192.168.0.171:8000/api/latest?symbols=USD,GBP')
+    .then(resp => resp.json())
+    .then(data => {
+        console.log(data);
+        output_symbols.innerText = JSON.stringify(data, undefined, 4);
+        //rates.innerText = data.price;
+        output_symbols.classList.add("show");
     })
     .catch(err => console.error(err));
 }
