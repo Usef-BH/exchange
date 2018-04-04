@@ -70,25 +70,36 @@ class Api(View):
         base = request.GET.get('base')
         target = request.GET.get('target')
         amount = request.GET.get('amount')
-        if base != 'EUR':
+        if base.strip().upper() == target.strip().upper():
+            response = {
+                "base": base,
+                "target": target,
+                "value": amount,
+                "price": 1,
+                "response": 1 * float(amount)
+            }
+            return JsonResponse(response)
+
+        if base != 'EUR' and target != 'EUR':
+            price = str(self.toEUR(base))
+            cur = str(self.toEUR(target))
+            resp = float(amount) * (float(cur)/float(price))
+        elif base != 'EUR' and target == 'EUR': 
             price = str(self.toEUR(base))
             resp = float(amount) * (1/float(price))
         else:
             price = str(self.toEUR(target))
             resp = float(amount) * float(price)
 
-        # print("The price is: {} with type: {}".format(price, type(price)))
         response = {
             "base": base,
             "target": target,
             "value": amount,
             "price": price,
-            "response": resp
+            "response": round(resp, 6)
         }
-
-        # data = serializers.serialize('json', response)
-        # return HttpResponse(response, content_type='application/json')
         return JsonResponse(response)
+
 
 
 def base(request):
