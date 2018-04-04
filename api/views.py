@@ -21,8 +21,8 @@ class Api(View):
     def get_data(self):
         shelf = shelve.open('exchange_rates')
         if 'Last-Modified' in shelf:
-            print("################################################")
-            print("Data exist in cache, but checking for deprecation!")
+            #print("################################################")
+            #print("Data exist in cache, but checking for deprecation!")
             headers = {'If-Modified-Since': shelf['Last-Modified']}
             response = requests.get(url_daily, headers=headers)
             try:
@@ -31,20 +31,20 @@ class Api(View):
                 print("Problem fetching data from network!!!")
 
             if response.text == '':
-                print("Data still good")
+                #print("Data still good")
                 file = open("exchange_rates.xml")
                 self.data = file.read()
                 file.close()
             else:
-                print("Data is outdated")
+                #print("Data is outdated")
                 self.data = response.text
                 shelf['Last-Modified'] = response.headers['Last-Modified']
                 file = open("exchange_rates.xml", "w")
                 file.write(self.data)
                 file.close()
         else:
-            print("################################################")
-            print("Fetching data from network")
+            #print("################################################")
+            #print("Fetching data from network")
             response = requests.get(url_daily)
             try:
                 response.raise_for_status()
@@ -60,9 +60,9 @@ class Api(View):
 
     def toEUR(self, unit):
         soup = BeautifulSoup(self.data, 'html.parser')
-        print("soup: %s" % soup)
+        #print("soup: %s" % soup)
         block = soup.find(currency=unit)
-        print("block: %s" % block)
+        #print("block: %s" % block)
         return block['rate']
 
     def get(self, request):
@@ -119,19 +119,19 @@ class Latest(View):
         time = soup.find(time=re.compile(".*"))
         if symbols:
             targets = symbols.split(',')
-            print("###########################################")
-            print("targets: {} type: {}.".format(targets, type(targets)))
-            for target in targets:
-                print("target {} of type {}.".format(target, type(target)))
+            #print("###########################################")
+            #print("targets: {} type: {}.".format(targets, type(targets)))
+            #for target in targets:
+                #print("target {} of type {}.".format(target, type(target)))
 
             lst = [soup.find(currency=re.compile(target))
                              for target in targets if target.upper()!='EUR']
-            print("###########################################")
-            print("list: %s" % lst)
+            #print("###########################################")
+            #print("list: %s" % lst)
         else:
             lst = soup.findAll(currency=re.compile(".*"))
-            print("###########################################")
-            print("list: %s" % lst)
+            #print("###########################################")
+            #print("list: %s" % lst)
         
         if base and base.upper() != 'EUR':
             resp['base'] = base
@@ -161,9 +161,9 @@ class Latest(View):
                 prices[block['currency']] = block['rate']
 
         soup = BeautifulSoup(self.data, 'html.parser')
-        print("soup: %s" % soup)
+        #print("soup: %s" % soup)
         block = soup.find(currency=base)
-        print("block: %s" % block)
+        #print("block: %s" % block)
         return block['rate']
 
     def get(self, request):
@@ -184,14 +184,14 @@ class getHist(View):
     def get(self, request, year, month, day):
 
         soup = BeautifulSoup(self.data, 'html.parser')
-        print("###########################################")
-        print("soup hist: %s" % soup)
+        #print("###########################################")
+        #print("soup hist: %s" % soup)
         time = soup.find(time=re.compile("{}-{}-{}".format(year, month, day)))
         rates = {}
         resp = {}
         lst = time.findAll(currency=re.compile(".*"))
-        print("###########################################")
-        print("list: %s" % lst)
+        #print("###########################################")
+        #print("list: %s" % lst)
 
         for item in lst:
             rates[item['currency']] = float(item['rate'])
@@ -206,8 +206,8 @@ class getHist(View):
 def get_data():
     shelf = shelve.open('exchange_rates')
     if 'Last-Modified' in shelf:
-        print("################################################")
-        print("Data exist in cache, but checking for deprecation!")
+        #print("################################################")
+        #print("Data exist in cache, but checking for deprecation!")
         headers = {'If-Modified-Since': shelf['Last-Modified']}
         response = requests.get(url_daily, headers=headers)
         try:
@@ -216,12 +216,12 @@ def get_data():
             print("Problem fetching data from network!!!")
 
         if response.text == '':
-            print("Data still good")
+            #print("Data still good")
             file = open("exchange_rates.xml")
             data = file.read()
             file.close()
         else:
-            print("Data is outdated")
+            #print("Data is outdated")
             data = response.text
             shelf['Last-Modified'] = response.headers['Last-Modified']
             file = open("exchange_rates.xml", "w")
@@ -230,8 +230,8 @@ def get_data():
         return data
 
     else:
-        print("################################################")
-        print("Fetching data from network")
+        #print("################################################")
+        #print("Fetching data from network")
         response = requests.get(url_daily)
         try:
             response.raise_for_status()
@@ -249,8 +249,8 @@ def get_data():
 def get_hist_data():
     shelf = shelve.open('exchange_rates_hist')
     if 'Last-Modified' in shelf:
-        print("################################################")
-        print("Data exist in cache, but checking for deprecation!")
+        #print("################################################")
+        #print("Data exist in cache, but checking for deprecation!")
         headers = {'If-Modified-Since': shelf['Last-Modified']}
         response = requests.get(url_hist, headers=headers)
         try:
@@ -259,12 +259,12 @@ def get_hist_data():
             print("Problem fetching data from network!!!")
 
         if response.text == '':
-            print("Data still good")
+            #print("Data still good")
             file = open("exchange_rates_hist.xml")
             data = file.read()
             file.close()
         else:
-            print("Data is outdated")
+            #print("Data is outdated")
             data = response.text
             shelf['Last-Modified'] = response.headers['Last-Modified']
             file = open("exchange_rates_hist.xml", "w")
@@ -273,8 +273,8 @@ def get_hist_data():
         return data
 
     else:
-        print("################################################")
-        print("Fetching data from network")
+        #print("################################################")
+        #print("Fetching data from network")
         response = requests.get(url_hist)
         try:
             response.raise_for_status()

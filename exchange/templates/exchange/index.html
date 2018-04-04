@@ -73,11 +73,15 @@
             <section>
                 <p>Get the latest currency exchange rates in JSON format.</p>
                 <div class="buttons">
-                        <button class="send" onclick="grab_latest()" role="send request">	
-                                &#128640;
+                        <button class="send tooltip" onclick="grab_latest('.tooltiptext_latest_send')" 
+                        onmouseout="resetTextSend('.tooltiptext_latest_send')" role="send request">	
+                            &#128640;
+                            <span class="tooltiptext tooltiptext_latest_send">Send Request</span>
                         </button>
-                        <button class="btn_copy" onclick="copy('.request_latest')" role="Copy to clopboard">
+                        <button class="btn_copy tooltip" onclick="copy('.request_latest', '.tooltiptext_latest_copy')" 
+                        onmouseout="resetTextCopy('.tooltiptext_latest_copy')" role="Copy to clipboard">
                             &#128203;
+                            <span class="tooltiptext tooltiptext_latest_copy">Copy to clipboard</span>
                         </button>                     
                     </div>
                     <div class="api_request">
@@ -92,11 +96,15 @@
             <section>
                 <p>Get rates back to 90 days ago.</p>
                     <div class="buttons">
-                        <button class="send" onclick="grab_hist()" role="send request">	
-                                &#128640;
+                        <button class="send tooltip" onclick="grab_hist('.tooltiptext_hist_send')" 
+                        onmouseout="resetTextSend('.tooltiptext_hist_send')" role="send request">	
+                            &#128640;
+                            <span class="tooltiptext tooltiptext_hist_send">Send Request</span>
                         </button>
-                        <button class="btn_copy" onclick="copy('.request_hist')" role="Copy to clopboard">
+                        <button class="btn_copy tooltip" onclick="copy('.request_hist', '.tooltiptext_hist_copy')" 
+                        onmouseout="resetTextCopy('.tooltiptext_hist_copy')" role="Copy to clopboard">
                             &#128203;
+                            <span class="tooltiptext tooltiptext_hist_copy">Copy to clipboard</span>
                         </button>                     
                     </div>
                     <div class="api_request">
@@ -111,11 +119,15 @@
                 <p>Rates are quoted against the EURO by default. To quote against a different currency use the
                     <strong>base</strong> uri parameter in your request.</p>
                     <div class="buttons">
-                            <button class="send" onclick="grab_base()" role="send request">	
-                                    &#128640;
+                            <button class="send tooltip" onclick="grab_base('.tooltiptext_base_send')" 
+                            onmouseout="resetTextSend('.tooltiptext_base_send')" role="send request">	
+                                &#128640;
+                                <span class="tooltiptext tooltiptext_base_send">Send Request</span>
                             </button>
-                            <button class="btn_copy" onclick="copy('.request_base')" role="Copy to clopboard">
+                            <button class="btn_copy tooltip" onclick="copy('.request_base', '.tooltiptext_base_copy')" 
+                            onmouseout="resetTextSend('.tooltiptext_base_copy')" role="Copy to clopboard">
                                 &#128203;
+                                <span class="tooltiptext tooltiptext_base_copy">Copy to clipboard</span>
                             </button>                     
                         </div>
                         <div class="api_request">
@@ -131,11 +143,15 @@
                     <strong>symbols</strong> parameter.</p>
                
                     <div class="buttons">
-                            <button class="send" onclick="grab_symbols()" role="send request">	
-                                    &#128640;
+                            <button class="send tooltip" onclick="grab_symbols('.tooltiptext_symbols_send')" 
+                            onmouseout="resetTextSend('.tooltiptext_symbols_send')" role="send request">	
+                                &#128640;
+                                <span class="tooltiptext tooltiptext_symbols_send">Send Request</span>
                             </button>
-                            <button class="btn_copy" onclick="copy('.request_symbols')" role="Copy to clopboard">
+                            <button class="btn_copy tooltip" onclick="copy('.request_symbols', '.tooltiptext_symbols_copy')" 
+                            onmouseout="resetTextSend('.tooltiptext_symbols_copy')" role="Copy to clopboard">
                                 &#128203;
+                                <span class="tooltiptext tooltiptext_symbols_copy">Copy to clipboard</span>
                             </button>                     
                         </div>
                         <div class="api_request">

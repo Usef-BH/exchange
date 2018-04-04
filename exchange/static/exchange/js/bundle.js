@@ -41,7 +41,8 @@ function validate() {
     }
 }
 
-function grab_latest() {
+function grab_latest(selectorTooltip) {
+    tooltipTextSend(selectorTooltip);
     fetch('http://192.168.0.171:8000/api/latest')
         .then(resp => resp.json())
         .then(data => {
@@ -53,7 +54,8 @@ function grab_latest() {
         .catch(err => console.error(err));
 }
 
-function grab_hist() {
+function grab_hist(selectorTooltip) {
+    tooltipTextSend(selectorTooltip);
     fetch('http://192.168.0.171:8000/api/2018-03-14')
         .then(resp => resp.json())
         .then(data => {
@@ -65,7 +67,8 @@ function grab_hist() {
         .catch(err => console.error(err));
 }
 
-function grab_base() {
+function grab_base(selectorTooltip) {
+    tooltipTextSend(selectorTooltip);
     fetch('http://192.168.0.171:8000/api/latest?base=USD&symbols=EUR,GBP,JPY')
         .then(resp => resp.json())
         .then(data => {
@@ -77,7 +80,8 @@ function grab_base() {
         .catch(err => console.error(err));
 }
 
-function grab_symbols() {
+function grab_symbols(selectorTooltip) {
+    tooltipTextSend(selectorTooltip);
     fetch('http://192.168.0.171:8000/api/latest?symbols=USD,GBP')
         .then(resp => resp.json())
         .then(data => {
@@ -89,8 +93,8 @@ function grab_symbols() {
         .catch(err => console.error(err));
 }
 
-function copy(selector) {
-
+function copy(selector, selectorTooltip) {
+    tooltipTextCopy(selectorTooltip);
     let ele = document.querySelector(selector);
     var range = document.createRange();
     var selection = window.getSelection();
@@ -109,3 +113,23 @@ function copy(selector) {
 document.addEventListener('copy', (e) => {
     console.log(e.target.innerText);
 });
+
+function tooltipTextSend(selector) {
+    let tooltip = document.querySelector(selector);
+    tooltip.innerText = "Request Sent";
+}
+
+function tooltipTextCopy(selector) {
+    let tooltip = document.querySelector(selector);
+    tooltip.innerText = "Copied!";
+}
+
+function resetTextCopy(ele) {
+    let tooltip = document.querySelector(ele);
+    tooltip.innerText = "Copy to clipboard"
+}
+
+function resetTextSend(ele) {
+    let tooltip = document.querySelector(ele);
+    tooltip.innerText = "Send request"
+}
