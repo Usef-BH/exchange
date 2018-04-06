@@ -55,15 +55,30 @@ header .logo {
     grid-column: 1;
 }
 
-header .api {
-    grid-column: -1;
+header .data {
+    grid-column: 10/span 2;
+}
+
+header .code {
+    grid-column: 12/span 2;
 }
 
 main {
     grid-row: 2;
     grid-gap: 20px;
     display: grid;
-    grid-template-rows: 150px 150px auto;
+    grid-template-rows: 150px minmax(60px, auto) 150px auto;
+}
+
+main .note {
+    max-width: 80vw;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    font-size: 18px;
+    border: 1px solid darkorange;
+    padding: 16px;
+    color: darkorange;
 }
 
 section {

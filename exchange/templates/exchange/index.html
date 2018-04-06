@@ -8,7 +8,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="shortcut icon" href="{% static 'exchange/img/favicon.png' %}" type="image/x-icon">
     <link rel="stylesheet" href="{% static 'exchange/css/style.css' %}">
-    <title>Exchange Rate</title>
+    <title>Currancies Exchange Rates</title>
 </head>
 
 <body>
@@ -16,14 +16,21 @@
         <a class="logo" href="/app/">
             <img src="{% static 'exchange/img/favicon.png' %}" width="40px" alt="logo of exchange.io project">
         </a>
-        <a class="api" href="/api/">API</a>
+        <a href="https://www.ecb.europa.eu/stats/policy_and_exchange_rates/euro_reference_exchange_rates/html/index.en.html"
+        class="data" target="_blank">
+        Data source
+        </a>
+        <a href="/code_samples/" class="code">Code Samples</a>
     </header>
     <main>
         <section class="intro">
-            <h1>Exchange.io</h1>
+            <h1>Free Exchange Rates API</h1>
             <h3>Currency exchange rates
                 <br> and conversion API</h3>
         </section>
+        <div class="note">
+           	&#9888; This API uses the EUROPEAN CENTRAL BANK as data source see the link in the header!
+        </div>
         <section class="converter">
             <input type="text" class="input_base" placeholder="0">
             <select name="base" class="select_base">
