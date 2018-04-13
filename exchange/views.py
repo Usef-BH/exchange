@@ -10,5 +10,16 @@ class App(View):
     def get(self, request):
         return render(request, 'exchange/index.html')
 
-    def post(self, request):
-        pass
+
+class Docs(View):
+
+
+    def get(self, request):
+        return render(request, 'exchange/docs.html')
+
+
+class Code(View):
+
+
+    def get(self, request):
+        return render(request, 'exchange/code.html')

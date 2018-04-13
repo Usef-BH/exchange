@@ -56,6 +56,7 @@ header .logo {
     grid-column: 1;
 }
 
+
 header .data {
     grid-column: 10/span 2;
     border: 1px solid rgb(67, 129, 243);
@@ -63,39 +64,26 @@ header .data {
     padding: 0px 2px;
 }
 
-header .data:hover {
+header .data:hover, .data:active {
     background-color: rgb(67, 129, 243);
 }
 
-header .docs {
+header .home {
     grid-column: 12/span 2;
     border: 1px solid rgb(104, 108, 235);
     border-radius: 5px;
     padding: 0px 2px;
 }
 
-header .docs:hover {
+header .home:hover, .home:active {
     background-color: rgb(104, 108, 235);
-}
-
-.docs_button {
-    grid-column: 12/span 2;
-    border: 1px solid rgb(82, 149, 237);
-    border-radius: 5px;
-    padding: 5px;
-    position: relative;
-}
-
-.docs_button:hover {
-    background-color: rgb(82, 149, 237);
-    animation: bounce 1s ease-in-out 0s infinite alternate;
 }
 
 main {
     grid-row: 2;
     grid-gap: 20px;
     display: grid;
-    grid-template-rows: 150px minmax(60px, auto) auto auto;
+    grid-template-rows: 150px minmax(60px, auto) auto;
 }
 
 main .note {
@@ -123,64 +111,6 @@ main .intro {
     grid-column: 1/-1;
 }
 
-.converter {
-    display: grid;
-    grid-template-rows: auto 1fr;
-    margin-left: auto;
-    margin-right: auto;
-    box-shadow: 5px 5px 26px grey;
-    padding: 20px;
-    border-radius: 15px;
-    box-sizing: border-box;
-}
-
-.converter_form {
-    display: grid;
-    grid-template-rows: repeat(3, 1fr);
-    grid-template-columns: 65% 25%;
-    grid-gap: 10px;
-}
-
-input {
-    border: none;
-    border-radius: 5px;
-    padding-left: 10px;
-}
-
-.go {
-    grid-row: 2;
-    grid-column: 1;
-    background-color: rgb(213, 213, 213);
-}
-
-*:focus {
-    outline: none;
-}
-
-.input_base {
-    grid-column: 1;
-    grid-row: 1;
-    background: rgb(213, 213, 213);
-}
-
-.select_base {
-    grid-column: 2;
-    grid-row: 1;
-    border-radius: 5px;
-}
-
-.input_target {
-    grid-column: 1;
-    grid-row: 3;
-    background: rgb(213, 213, 213);
-}
-
-.select_target {
-    grid-column: 2;
-    grid-row: 3;
-    border-radius: 5px;
-}
-
 .usage {
     width: 60%;
     margin-left: auto;
@@ -198,7 +128,6 @@ input {
 }
 
 .buttons {
-    background-color: rgb(213, 213, 213);
     border: 1px solid black;
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
@@ -212,6 +141,13 @@ input {
     background: none;
     border: none;
     position: relative;
+}
+
+.copy_code {
+    border: 1px solid #bbbbbb;
+    border-bottom: none;
+    border-radius: 5px 5px 0 0;
+    float: right;
 }
 
 button {
@@ -238,7 +174,7 @@ button {
 .request_latest, .request_hist, .request_base, .request_symbols {
     white-space: nowrap;
     display: inline;
-    font-size: calc(13px + (16-13)*(100vw-300px)/(800-300));
+    font-size: calc(13px + (16 - 13)*(100vw - 300px)/(800 - 300));
     color: #2196f3;
     padding: 0px 10px;
 }
@@ -251,6 +187,20 @@ button {
 .req {
     display: inline;
     color: #2196f3;
+}
+
+.code_samples {
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.gist {
+    clear: right;
+}
+
+*:focus {
+    outline: none;
 }
 
 /* .output {
@@ -329,6 +279,10 @@ button {
     visibility: visible;
 }
 
+.tooltip:active .tooltiptext {
+    visibility: visible;
+}
+
 .show {
     display: block;
     text-align: left;
@@ -351,18 +305,6 @@ footer {
 @media Screen and (min-width: 500px) and (max-width: 800px) {
     body {
         width: 100%;
-        min-width: 320px;
-    }
-
-    .intro {
-        font-size: 13px;
-        line-height: 1rem;
-    }
-}
-
-@media Screen and (max-width: 499px) {
-    body {
-        width: 100%;
         min-width: 300px;
     }
 
@@ -370,8 +312,28 @@ footer {
         font-size: 13px;
         line-height: 1rem;
     }
-    .usage, .converter {
-        width: 90%;
+
+    .code_samples {
+        width: 80vw;
+    }
+}
+
+@media Screen and (max-width: 499px) {
+    body {
+        width: 100%;
+        min-width: 320px;
+    }
+
+    .intro {
+        font-size: 13px;
+        line-height: 1rem;
+    }
+
+    .usage {
+        width: 80%;
+    }
+    .code_samples {
+        width: 80vw;
     }
 }
 
@@ -456,6 +418,10 @@ h1, h2 {
     line-height: 2rem;
     margin-top: 1rem;
     margin-bottom: 1rem;
+}
+
+h4 {
+    padding: 15px;
 }
 
 h1 {

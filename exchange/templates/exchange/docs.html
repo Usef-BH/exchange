@@ -1,0 +1,165 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=2.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="shortcut icon" href="{% static 'exchange/img/favicon.png' %}" type="image/x-icon">
+    <link rel="stylesheet" href="{% static 'exchange/css/docs.css' %}">
+    <title>Currancies Exchange Rates</title>
+</head>
+
+<body>
+    <header>
+        <a class="logo" href="/">
+            <img src="{% static 'exchange/img/favicon.png' %}" width="40px" alt="logo of exchange.io project">
+        </a>
+        <a href="https://www.ecb.europa.eu/stats/policy_and_exchange_rates/euro_reference_exchange_rates/html/index.en.html" class="data"
+            target="_blank">
+            Data source
+        </a>
+        <a href="/" class="home">Home</a>
+    </header>
+    <main>
+        <section class="intro">
+            <h1>Free Exchange Rates API</h1>
+            <h3>Currency exchange rates
+                <br> and conversion API</h3>
+        </section>
+        <div class="note">
+            &#9888; This API uses
+            <a href="https://www.ecb.europa.eu/stats/policy_and_exchange_rates/euro_reference_exchange_rates/html/index.en.html" target="_blank">
+                the EUROPEAN CENTRAL BANK
+            </a>
+            as data source.
+        </div>
+        <section class="usage">
+            <h2 class="section_title">Usage:</h2>
+            <section>
+                <p>Get the latest currency exchange rates in JSON format.</p>
+                <div class="buttons">
+                    <button class="send tooltip" onclick="grab_latest('.tooltiptext_latest_send')" onmouseout="resetTextSend('.tooltiptext_latest_send')"
+                        role="send request">
+                        <img src="{% static 'exchange/img/send.svg' %}" width="20px" alt="Send Request">
+                        <span class="tooltiptext tooltiptext_latest_send">Send Request</span>
+                    </button>
+                    <button class="btn_copy tooltip" onclick="copy('.request_latest', '.tooltiptext_latest_copy')" onmouseout="resetTextCopy('.tooltiptext_latest_copy')"
+                        role="Copy to clipboard">
+                        <img src="{% static 'exchange/img/clippy.svg' %}" width="17px" alt="Send Request">
+                        <span class="tooltiptext tooltiptext_latest_copy">Copy to clipboard</span>
+                    </button>
+                </div>
+                <div class="api_request">
+                    <!--input class="request_latest" value="https://exchange.io/api/latest/"-->
+                    <p class="request_latest">
+                        http://192.168.0.171:8000/api/latest/
+                    </p>
+                    <pre class="output"></pre>
+                </div>
+            </section>
+            <br>
+            <section>
+                <p>Get historical rates back to 1999.</p>
+                <div class="buttons">
+                    <button class="send tooltip" onclick="grab_hist('.tooltiptext_hist_send')" onmouseout="resetTextSend('.tooltiptext_hist_send')"
+                        role="send request">
+                        <img src="{% static 'exchange/img/send.svg' %}" width="20px" alt="Send Request">
+                        <span class="tooltiptext tooltiptext_hist_send">Send Request</span>
+                    </button>
+                    <button class="btn_copy tooltip" onclick="copy('.request_hist', '.tooltiptext_hist_copy')" onmouseout="resetTextCopy('.tooltiptext_hist_copy')"
+                        role="Copy to clopboard">
+                        <img src="{% static 'exchange/img/clippy.svg' %}" width="17px" alt="Send Request">
+                        <span class="tooltiptext tooltiptext_hist_copy">Copy to clipboard</span>
+                    </button>
+                </div>
+                <div class="api_request">
+                    <p class="request_hist">
+                        http://192.168.0.171:8000/api/2018-03-14
+                    </p>
+                    <pre class="output_hist"></pre>
+                </div>
+            </section>
+            <br>
+            <section>
+                <p>Request specific exchange rates by setting the
+                    <strong>symbols</strong> parameter.</p>
+
+                <div class="buttons">
+                    <button class="send tooltip" onclick="grab_symbols('.tooltiptext_symbols_send')" onmouseout="resetTextSend('.tooltiptext_symbols_send')"
+                        role="send request">
+                        <img src="{% static 'exchange/img/send.svg' %}" width="20px" alt="Send Request">
+                        <span class="tooltiptext tooltiptext_symbols_send">Send Request</span>
+                    </button>
+                    <button class="btn_copy tooltip" onclick="copy('.request_symbols', '.tooltiptext_symbols_copy')" onmouseout="resetTextSend('.tooltiptext_symbols_copy')"
+                        role="Copy to clopboard">
+                        <img src="{% static 'exchange/img/clippy.svg' %}" width="17px" alt="Send Request">
+                        <span class="tooltiptext tooltiptext_symbols_copy">Copy to clipboard</span>
+                    </button>
+                </div>
+                <div class="api_request">
+                    <p class="request_symbols">
+                        http://192.168.0.171:8000/api/latest?symbols=USD,GBP
+                    </p>
+                    <pre class="output_symbols"></pre>
+                </div>
+            </section>
+            <br>
+            <section>
+                <p>Rates are quoted against the EURO by default. To quote against a different currency use the
+                    <strong>base</strong> uri parameter in your request.</p>
+                <div class="buttons">
+                    <button class="send tooltip" onclick="grab_base('.tooltiptext_base_send')" onmouseout="resetTextSend('.tooltiptext_base_send')"
+                        role="send request">
+                        <img src="{% static 'exchange/img/send.svg' %}" width="20px" alt="Send Request">
+                        <span class="tooltiptext tooltiptext_base_send">Send Request</span>
+                    </button>
+                    <button class="btn_copy tooltip" onclick="copy('.request_base', '.tooltiptext_base_copy')" onmouseout="resetTextSend('.tooltiptext_base_copy')"
+                        role="Copy to clopboard">
+                        <img src="{% static 'exchange/img/clippy.svg' %}" width="17px" alt="Send Request">
+                        <span class="tooltiptext tooltiptext_base_copy">Copy to clipboard</span>
+                    </button>
+                </div>
+                <div class="api_request">
+                    <p class="request_base">
+                        http://192.168.0.171:8000/api/latest?base=USD&symbols=EUR,GBP,JPY
+                    </p>
+                    <pre class="output_base"></pre>
+                </div>
+            </section>
+        </section>
+        <section class="code_samples">
+            <h2 class="section_title">Code Samples:</h2>
+            <section class="py_code">
+                <h4>Python code sample to fetch the latest currencies exchange rates:</h4>
+                <button class="btn_copy copy_code tooltip" onclick="copy('.py_code .gist-data', '.tooltiptext_pygist_copy')" onmouseout="resetTextCopy('.tooltiptext_pygist_copy')"
+                    role="Copy to clipboard">
+                    <img src="{% static 'exchange/img/clippy.svg' %}" width="17px" alt="Copy to clipboard">
+                    <span class="tooltiptext tooltiptext_pygist_copy">Copy to clipboard</span>
+                </button>
+                <script src="https://gist.github.com/Usef-BH/dfe398e9015f91619834f17fe5765d53.js"></script>
+            </section>
+            <section class="js_code">
+                <h4>Javascript code sample to fetch the latest currencies exchange rates:</h4>
+                <button class="btn_copy copy_code tooltip" onclick="copy('.js_code .gist-data', '.tooltiptext_jsgist_copy')" onmouseout="resetTextCopy('.tooltiptext_jsgist_copy')"
+                    role="Copy to clipboard">
+                    <img src="{% static 'exchange/img/clippy.svg' %}" width="17px" alt="Copy to clipboard">
+                    <span class="tooltiptext tooltiptext_jsgist_copy">Copy to clipboard</span>
+                </button>
+                <script src="https://gist.github.com/Usef-BH/b1edfef9aa20707e91d1d71b2278be61.js"></script>
+            </section>
+        </section>
+
+    </main>
+
+    <footer>
+        <span class="copyrights">&#169; 2018. All rights reserved.</span>
+        <a target="_blank" href="https://twitter.com/usef_bh" class="fontawesome-twitter"></a>
+        <a target="_blank" href="https://github.com/usef-bh" class="fontawesome-github"></a>
+        <a target="_blank" href="mailto:youssefbouhouch2014@gmail.com" class="fontawesome-envelope-alt"></a>
+    </footer>
+    <script src="{% static 'exchange/js/docs.js' %}"></script>
+</body>
+
+</html>
