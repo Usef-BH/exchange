@@ -13,7 +13,7 @@ function process() {
     let base_value = select_base.value;
     let target_value = select_target.value
     let amount = input_base.value;
-    fetch(`http://192.168.0.171:8000/api/?amount=${amount}&base=${base_value}&target=${target_value}`)
+    fetch(`http://django-env.grpimarsjd.eu-west-3.elasticbeanstalk.com/api/?amount=${amount}&base=${base_value}&target=${target_value}`)
         .then(resp => resp.json())
         .then(data => {
             input_target.value = data.response;
@@ -23,7 +23,7 @@ function process() {
 
 function grab_latest(selectorTooltip) {
     tooltipTextSend(selectorTooltip);
-    fetch('http://192.168.0.171:8000/api/latest')
+    fetch('http://django-env.grpimarsjd.eu-west-3.elasticbeanstalk.com/api/latest')
         .then(resp => resp.json())
         .then(data => {
             output.innerText = JSON.stringify(data, undefined, 4);
@@ -35,7 +35,7 @@ function grab_latest(selectorTooltip) {
 
 function grab_hist(selectorTooltip) {
     tooltipTextSend(selectorTooltip);
-    fetch('http://192.168.0.171:8000/api/2018-03-14')
+    fetch('http://django-env.grpimarsjd.eu-west-3.elasticbeanstalk.com/api/2018-03-14')
         .then(resp => resp.json())
         .then(data => {
             output_hist.innerText = JSON.stringify(data, undefined, 4);
@@ -47,7 +47,7 @@ function grab_hist(selectorTooltip) {
 
 function grab_base(selectorTooltip) {
     tooltipTextSend(selectorTooltip);
-    fetch('http://192.168.0.171:8000/api/latest?base=USD&symbols=EUR,GBP,JPY')
+    fetch('http://django-env.grpimarsjd.eu-west-3.elasticbeanstalk.com/api/latest?base=USD&symbols=EUR,GBP,JPY')
         .then(resp => resp.json())
         .then(data => {
             output_base.innerText = JSON.stringify(data, undefined, 4);
@@ -59,7 +59,7 @@ function grab_base(selectorTooltip) {
 
 function grab_symbols(selectorTooltip) {
     tooltipTextSend(selectorTooltip);
-    fetch('http://192.168.0.171:8000/api/latest?symbols=USD,GBP')
+    fetch('http://django-env.grpimarsjd.eu-west-3.elasticbeanstalk.com/api/latest?symbols=USD,GBP')
         .then(resp => resp.json())
         .then(data => {
             output_symbols.innerText = JSON.stringify(data, undefined, 4);

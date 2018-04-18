@@ -11,7 +11,7 @@ function process() {
     //console.log("Hello from javascript lando!!!!");
     //console.log('select_base:', base_value);
     //console.log('select_target:', target_value);
-    fetch(`http://192.168.0.171:8000/api/?amount=${amount}&base=${base_value}&target=${target_value}`)
+    fetch(`http://django-env.grpimarsjd.eu-west-3.elasticbeanstalk.com/api/?amount=${amount}&base=${base_value}&target=${target_value}`)
         .then(resp => resp.json())
         .then(data => {
             //console.log(data);
