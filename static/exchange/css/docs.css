@@ -1,0 +1,449 @@
+@font-face {
+    font-family: 'FontAwesome';
+    font-style: normal;
+    font-weight: normal;
+    src: url(/static/exchange/third_party/fonts/fontawesome-webfont.woff) format('woff');
+  }
+  
+  .fontawesome-twitter:before{content:"\f099"}.fontawesome-github:before{content:"\f09b"}.fontawesome-envelope-alt:before{content:"\f0e0"}
+  
+
+/* fontawesome */
+[class*="fontawesome-"]:before {
+    font-family: 'FontAwesome', sans-serif;
+  }
+
+* {
+    margin: 0;
+    padding: 0;
+    -webkit-tap-highlight-color: transparent;
+}
+
+@font-face {
+    font-family: hallosans;
+    src: url(/static/exchange/third_party/fonts/hallo_sans.otf) format("opentype");
+    font-weight: 400;
+    font-style: normal;
+    font-display: optional
+}
+
+body {
+    background-color: white;/*rgb(213, 213, 213);*/
+    display: grid;
+    grid-template-rows: 50px minmax(calc(100vh - 140px), auto) 50px;
+    grid-row-gap: 20px;
+    width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    color: #323232;
+    word-wrap: break-word;
+    font-family: hallosans,Futura,HelveticaNeue-Light,Helvetica Neue Light,Helvetica Neue,Helvetica,Open Sans,sans-serif;
+    font-size: 16px;
+    line-height: 1.5rem;
+}
+
+header {
+    grid-row: 1;
+    grid-gap: 5px;
+    text-align: center;
+    display: grid;
+    grid-template-columns: repeat(12, auto);
+    align-items: center;
+    padding: 10px;
+}
+
+header .logo {
+    grid-column: 1;
+}
+
+
+header .data {
+    grid-column: 10/span 2;
+    border: 1px solid rgb(67, 129, 243);
+    border-radius: 5px;
+    padding: 0px 2px;
+}
+
+header .data:hover, .data:active {
+    background-color: rgb(67, 129, 243);
+}
+
+header .home {
+    grid-column: 12/span 2;
+    border: 1px solid rgb(104, 108, 235);
+    border-radius: 5px;
+    padding: 0px 2px;
+}
+
+header .home:hover, .home:active {
+    background-color: rgb(104, 108, 235);
+}
+
+main {
+    grid-row: 2;
+    grid-gap: 20px;
+    display: grid;
+    grid-template-rows: 150px minmax(60px, auto) auto;
+}
+
+main .note {
+    max-width: 80vw;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    font-size: 18px;
+    border: 1px solid darkorange;
+    padding: 16px;
+    color: darkorange;
+}
+
+section {
+    margin-top: 20px;
+}
+
+.section_title {
+    font-size: 30px;
+}
+
+main .intro {
+    text-align: center;
+    grid-row: 1;
+    grid-column: 1/-1;
+}
+
+.usage {
+    width: 60%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.api_request {
+    display: block;
+    overflow: auto;
+    width: 100%;
+    background-color: black;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+.buttons {
+    border: 1px solid black;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    display: inline-block;
+    float: right;
+}
+
+.btn_copy {
+    padding: 7px;
+    font-size: 20px;
+    background: none;
+    border: none;
+    position: relative;
+}
+
+.copy_code {
+    border: 1px solid #bbbbbb;
+    border-bottom: none;
+    border-radius: 5px 5px 0 0;
+    float: right;
+}
+
+button {
+    cursor: pointer;
+}
+
+.send {
+    padding: 7px;
+    border: none;
+    font-size: 20px;
+    background: none;
+    position: relative;
+    border-right: 1px solid;
+}
+
+.but {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    position: absolute;
+    top: 7px;
+}
+
+.request_latest, .request_hist, .request_base, .request_symbols {
+    white-space: nowrap;
+    display: inline;
+    font-size: calc(13px + (18 - 13)*(100vw - 300px)/(800 - 300));
+    color: #2196f3;
+    padding: 0px 10px;
+}
+
+.request_but {
+    background: none;
+    color: #2196f3;
+}
+
+.req {
+    display: inline;
+    color: #2196f3;
+}
+
+.code_samples {
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.gist {
+    clear: right;
+}
+
+*:focus {
+    outline: none;
+}
+
+/* .output {
+    display: none;
+    position: absolute;
+    top: 50px;
+    left: 20px;
+    color: white;
+} */
+
+/* width */
+*::-webkit-scrollbar {
+    width: 8px;
+    height: 6px;
+}
+
+/* Track */
+*::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px grey; 
+    border-radius: 6px;
+}
+
+/* Handle */
+*::-webkit-scrollbar-thumb {
+    background: #2196F3; 
+    border-radius: 6px;
+}
+
+/* Handle */
+*::-webkit-scrollbar-thumb:hover {
+    background: blue; 
+    border-radius: 6px;
+}
+
+/* width */
+[class^='output']::-webkit-scrollbar {
+    width: 8px;
+}
+
+.tooltiptext {
+    width: 100px;
+    visibility: hidden;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    position: absolute;
+    z-index: 1;
+    top: -100%;
+    font-family: hallosans,Futura,HelveticaNeue-Light,Helvetica Neue Light,Helvetica Neue,Helvetica,Open Sans,sans-serif;
+    font-size: 16px;
+    padding: 4px;
+    white-space: nowrap;
+}
+
+.send .tooltiptext {
+    left: -100%;
+}
+
+.btn_copy .tooltiptext {
+    left: -130%;
+}
+
+.tooltiptext::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: black transparent transparent transparent;
+}
+
+.tooltip:hover .tooltiptext {
+    visibility: visible;
+}
+
+.tooltip:active .tooltiptext {
+    visibility: visible;
+}
+
+.show {
+    display: block;
+    text-align: left;
+    color: white;
+    height: 200px;
+    font-family: hallosans,Futura,HelveticaNeue-Light,Helvetica Neue Light,Helvetica Neue,Helvetica,Open Sans,sans-serif;
+    font-size: 16px;
+    padding-left: 15px;
+}
+
+footer {
+    grid-row: 3;
+    display: grid;
+    grid-template-columns: repeat(12, auto);
+    font-size: 20px;
+    padding: 10px;
+    align-items: center;
+}
+
+@media Screen and (min-width: 500px) and (max-width: 800px) {
+    body {
+        width: 100%;
+        min-width: 300px;
+    }
+
+    .intro {
+        font-size: 13px;
+        line-height: 1rem;
+    }
+
+    .code_samples {
+        width: 80vw;
+    }
+}
+
+@media Screen and (max-width: 499px) {
+    body {
+        width: 100%;
+        min-width: 320px;
+    }
+
+    .intro {
+        font-size: 13px;
+        line-height: 1rem;
+    }
+
+    .usage {
+        width: 80%;
+    }
+    .code_samples {
+        width: 80vw;
+    }
+}
+
+@media Screen and (max-width: 300px) {
+    .request_latest, .request_hist, .request_base, .request_symbols {
+        font-size: 13px;
+    }
+}
+
+@media Screen and (min-width: 800px) {
+    .request_latest, .request_hist, .request_base, .request_symbols {
+        font-size: 18px;
+    }
+}
+
+
+[class^="fontawesome-"] {
+    position: relative;
+    color: black; 
+}
+
+[class^="fontawesome-twitter"] {
+    grid-column: 8;
+}
+
+[class^="fontawesome-github"] {
+    grid-column: 10;
+}
+
+[class^="fontawesome-envelope-alt"] {
+    grid-column: 12;
+}
+
+.copyrights {
+    grid-column: 1/4;
+    font-size: 14px;
+}
+
+[class^="fontawesome-"]:hover {
+    color: rgb(82, 149, 237);
+    animation: bounce 1s ease-in-out 0s infinite alternate;
+}
+
+[class^="fontawesome-"]:active {
+    color: rgb(82, 149, 237);
+    animation: bounce 1s ease-in-out 0s infinite alternate;
+}
+
+a {
+    cursor: pointer;
+    color: #303030;
+    text-decoration: none;
+    font-family: hallosans,Futura,HelveticaNeue-Light,Helvetica Neue Light,Helvetica Neue,Helvetica,Open Sans,sans-serif;
+    font-weight: 400;
+}
+
+a:active {
+    color: rgb(0, 110, 255);
+}
+
+
+@keyframes bounce {
+    0% {
+        left: 0px;
+        top: 0px;
+    }
+    25% {
+        left: 5px;
+        top: 2px;
+    }
+    50% {
+        left: 10px;
+        top: 0px;
+    }
+    75% {
+        left: 5px;
+        top: 2px
+    }
+    100% {
+        left: 0px;
+        top: 0px;
+    }
+
+}
+
+h1, h2, h3, h4, h5, h6 {
+    color: #303030;
+    font-family: hallosans,Futura,HelveticaNeue-Light,Helvetica Neue Light,Helvetica Neue,Helvetica,Open Sans,sans-serif;
+    font-weight: 400;
+    word-wrap: normal;
+}
+
+h1, h2 {
+    line-height: 2rem;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+h4 {
+    padding: 15px;
+}
+
+h1 {
+    font-size: 2rem;
+}
+
+h5, h6 {
+    line-height: 1rem;
+}
+
+h5 {
+    font-size: 1rem;
+}
