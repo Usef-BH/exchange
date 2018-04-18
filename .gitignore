@@ -1,6 +1,10 @@
 db.sqlite3
-exchange_rates*
+rates_*
 .vscode
 api/__pycache__
 exchange/__pycache__
 project/__pycache__
+# Elastic Beanstalk Files
+.elasticbeanstalk/*
+!.elasticbeanstalk/*.cfg.yml
+!.elasticbeanstalk/*.global.yml

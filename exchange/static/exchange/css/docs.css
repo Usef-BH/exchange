@@ -174,7 +174,7 @@ button {
 .request_latest, .request_hist, .request_base, .request_symbols {
     white-space: nowrap;
     display: inline;
-    font-size: calc(13px + (16 - 13)*(100vw - 300px)/(800 - 300));
+    font-size: calc(13px + (18 - 13)*(100vw - 300px)/(800 - 300));
     color: #2196f3;
     padding: 0px 10px;
 }
@@ -334,6 +334,18 @@ footer {
     }
     .code_samples {
         width: 80vw;
+    }
+}
+
+@media Screen and (max-width: 300px) {
+    .request_latest, .request_hist, .request_base, .request_symbols {
+        font-size: 13px;
+    }
+}
+
+@media Screen and (min-width: 800px) {
+    .request_latest, .request_hist, .request_base, .request_symbols {
+        font-size: 18px;
     }
 }
 
