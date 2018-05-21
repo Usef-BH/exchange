@@ -11,7 +11,7 @@ function process() {
     //console.log("Hello from javascript lando!!!!");
     //console.log('select_base:', base_value);
     //console.log('select_target:', target_value);
-    fetch(`http://django-env.grpimarsjd.eu-west-3.elasticbeanstalk.com/api/?amount=${amount}&base=${base_value}&target=${target_value}`)
+    fetch(`http://192.168.0.171:8000/api/?amount=${amount}&base=${base_value}&symbols=${target_value}`)
         .then(resp => resp.json())
         .then(data => {
             //console.log(data);
@@ -20,9 +20,7 @@ function process() {
         .catch(err => console.error(err));
 }
 
-select_target.addEventListener('change', validate);
-
-function validate() {
+select_target.addEventListener('change', function(event) {
     let select = event.target;
     event.stopPropagation();
     //console.log('hello: ', select.selectedOptions[0].value);
@@ -34,4 +32,10 @@ function validate() {
         input_base.value = "";
         input_target.value = "";
     }
+});
+
+function validate(event) {
+
 }
+
+//django-env.grpimarsjd.eu-west-3.elasticbeanstalk.com

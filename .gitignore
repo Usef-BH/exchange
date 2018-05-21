@@ -1,5 +1,6 @@
 db.sqlite3
 rates_*
+**/migrations/**
 .vscode
 api/__pycache__
 exchange/__pycache__

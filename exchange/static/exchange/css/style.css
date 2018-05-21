@@ -57,7 +57,7 @@ header .logo {
 }
 
 header .data {
-    grid-column: 10/span 2;
+    grid-column: 8/span 2;
     border: 1px solid rgb(67, 129, 243);
     border-radius: 5px;
     padding: 0px 2px;
@@ -68,13 +68,24 @@ header .data:hover {
 }
 
 header .docs {
-    grid-column: 12/span 2;
+    grid-column: 10/span 2;
     border: 1px solid rgb(104, 108, 235);
     border-radius: 5px;
     padding: 0px 2px;
 }
 
 header .docs:hover {
+    background-color: rgb(104, 108, 235);
+}
+
+header .register {
+    grid-column: 12/span 2;
+    border: 1px solid rgb(104, 108, 235);
+    border-radius: 5px;
+    padding: 0px 2px;
+}
+
+header .register:hover {
     background-color: rgb(104, 108, 235);
 }
 
