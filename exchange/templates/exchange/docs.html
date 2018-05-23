@@ -38,6 +38,21 @@
         </div>
         <section class="usage">
             <h2 class="section_title">Usage:</h2>
+            <p>
+                <h3><strong>Get your token <a href="/register/" style="color:red;">here.</a><br></strong></h3>
+                For clients to authenticate, the token key should be included in the Authorization HTTP header. 
+                The key should be prefixed by the string literal "Token", with whitespace separating the two strings.
+            </p>
+            <strong>For example:</strong>
+            <code>Authorization: Token YOUR_TOKEN_KEY</code>
+            <p>
+                And this header should be included for all the requests (below), otherwise you will be throttled
+                after sending 10 requests without the <strong>Authorization</strong> header and Token.
+            </p>
+            <strong style="color: coral;">Note:</strong>
+            <p style="display: inline;margin-left: 10px;">
+                Requests bellow are not authenticated.
+            </p>
             <section>
                 <p>Get the latest currency exchange rates in JSON format.</p>
                 <div class="buttons">
@@ -55,7 +70,7 @@
                 <div class="api_request">
                     <!--input class="request_latest" value="https://exchange.io/api/latest/"-->
                     <p class="request_latest">
-                        http://django-env.grpimarsjd.eu-west-3.elasticbeanstalk.com/api/latest/
+                        http://www.exchangeio.com/api/latest/
                     </p>
                     <pre class="output"></pre>
                 </div>
@@ -77,7 +92,7 @@
                 </div>
                 <div class="api_request">
                     <p class="request_hist">
-                        http://django-env.grpimarsjd.eu-west-3.elasticbeanstalk.com/api/2018-03-14
+                        http://www.exchangeio.com/api/2018-03-14
                     </p>
                     <pre class="output_hist"></pre>
                 </div>
@@ -101,7 +116,7 @@
                 </div>
                 <div class="api_request">
                     <p class="request_symbols">
-                        http://django-env.grpimarsjd.eu-west-3.elasticbeanstalk.com/api/latest?symbols=USD,GBP
+                        http://www.exchangeio.com/api/latest?symbols=USD,GBP
                     </p>
                     <pre class="output_symbols"></pre>
                 </div>
@@ -124,7 +139,7 @@
                 </div>
                 <div class="api_request">
                     <p class="request_base">
-                        http://django-env.grpimarsjd.eu-west-3.elasticbeanstalk.com/api/latest?base=USD&symbols=EUR,GBP,JPY
+                        http://www.exchangeio.com/api/latest?base=USD&symbols=EUR,GBP,JPY
                     </p>
                     <pre class="output_base"></pre>
                 </div>

@@ -235,13 +235,12 @@ button {
     outline: none;
 }
 
-/* .output {
-    display: none;
-    position: absolute;
-    top: 50px;
-    left: 20px;
-    color: white;
-} */
+.output_data {
+    overflow: auto;
+    padding: 10px;
+    color: aliceblue;
+    font-size: calc(13px + 3 * (100vw - 300px)/500);
+}
 
 /* width */
 *::-webkit-scrollbar {
@@ -506,17 +505,13 @@ h5 {
 .modal {
     font-size: 20px;
     width: 80%;
-    /*display: grid;
-    grid-template-columns: repeat(12, 1fr);
-    grid-row-gap: 20px;*/
     position: absolute;
-    top: 30%;
+    background-color: #323232;
+    bottom: 30%;
     left: calc(calc(100vw - 80% - 20px)/2);
     padding: 10px;
     opacity: 1;
     animation: showSweetAlert .3s;
-    /*pointer-events: none;*/
-    background-color: #fff;
     text-align: center;
     border-radius: 5px;
     vertical-align: middle;
@@ -558,25 +553,17 @@ h5 {
     }
 }
 
-.token {
-    grid-row: 2;
-    grid-column: 1/-1;
-    display: grid;
-    grid-template-columns: repeat(12, 1fr);
-    grid-template-rows: 1fr 1fr;
-}
-
 .koko {
-    grid-row: 1;
-    grid-column: 12;
+    float: right;
+    width: 40px;
     border: 1px solid #c3c3c3;
     border-radius: 5px 5px 0px 0px;
 }
 
-.hey {
+/* .hey {
     grid-row: 2;
     grid-column: 1/-1;
-}
+} */
 
 .greetings {
 /*     grid-row: 3;
@@ -584,6 +571,7 @@ h5 {
 
     display: block;
     padding: 20px 0px;
+    color: white;
 }
 
 .ok {
@@ -735,7 +723,6 @@ h5 {
 .swal-icon--success__hide-corners {
     width: 5px;
     height: 90px;
-    background-color: #fff;
     padding: 1px;
     position: absolute;
     left: 28px;
@@ -863,4 +850,20 @@ h5 {
     border-radius: 50%;
     margin-left: -3px;
     top: 19px;
+}
+
+code {
+    display: block;
+    font-size: 13px;
+    text-align: center;
+    background-color: black;
+    color: white;
+    border-radius: 5px;
+}
+
+@media screen and (min-width: 500px) {
+    .modal {
+        width: 500px;
+        left: calc(calc(100vw - 500px - 20px)/2);
+    }
 }

@@ -40,16 +40,16 @@ class Register(APIView):
         
 
         if valid_email:
-            first_name = request.data.get('first_name', None)
-            last_name = request.data.get('last_name', None)
             password = request.data.get('password', None)
             try: 
-                user = MyUser.objects.create_user(email, first_name, last_name, password=password)            
+                user = MyUser.objects.create_user(email, password=password)            
                 token = Token.objects.create(user=user)
             except IntegrityError:
+                user = MyUser.objects.get(email=email)            
+                token = Token.objects.get(user=user)
                 data = {
                     "success": False,
-                    "message": "This Email is alreay registered!"
+                    "token": token.key
                 }
             else:
                 data = {
@@ -58,9 +58,8 @@ class Register(APIView):
                 }   
 
         else:
-            success = False
             data = {
-                "success": success
+                "success": False
             }
 
         print(f"############==> data: {data}")
