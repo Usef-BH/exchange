@@ -8,6 +8,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="shortcut icon" href="{% static 'exchange/img/favicon.png' %}" type="image/x-icon">
     <link rel="stylesheet" href="{% static 'exchange/css/docs.css' %}">
+    <script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js?skin=desert"></script>
     <title>Documentation</title>
 </head>
 
@@ -37,21 +38,23 @@
             as data source.
         </div>
         <section class="usage">
-            <h2 class="section_title">Usage:</h2>
+            <h2 class="section_title">Usage:  🚀</h2>
             <p>
                 <h3><strong>Get your token <a href="/register/" style="color:red;">here.</a><br></strong></h3>
                 For clients to authenticate, the token key should be included in the Authorization HTTP header. 
                 The key should be prefixed by the string literal "Token", with whitespace separating the two strings.
             </p>
             <strong>For example:</strong>
-            <code>Authorization: Token YOUR_TOKEN_KEY</code>
+            <strong>
+                    <p class="highlight">Authorization: Token YOUR_TOKEN_KEY</p>
+            </strong>
             <p>
                 And this header should be included for all the requests (below), otherwise you will be throttled
                 after sending 10 requests without the <strong>Authorization</strong> header and Token.
             </p>
-            <strong style="color: coral;">Note:</strong>
-            <p style="display: inline;margin-left: 10px;">
-                Requests bellow are not authenticated.
+            <br>
+            <p>
+               <span style="color: darkorange; font-size: 25px">&#9888;</span> Requests bellow are not authenticated.
             </p>
             <section>
                 <p>Get the latest currency exchange rates in JSON format.</p>
@@ -149,21 +152,37 @@
             <h2 class="section_title">Code Samples:</h2>
             <section class="py_code">
                 <h4>Python code sample to fetch the latest currencies exchange rates:</h4>
-                <button class="btn_copy copy_code tooltip" onclick="copy('.py_code .gist-data', '.tooltiptext_pygist_copy')" onmouseout="resetTextCopy('.tooltiptext_pygist_copy')"
+                <button class="btn_copy copy_code tooltip" onclick="copy('.lang-python', '.tooltiptext_pygist_copy')" onmouseout="resetTextCopy('.tooltiptext_pygist_copy')"
                     role="Copy to clipboard">
                     <img src="{% static 'exchange/img/clippy.svg' %}" width="17px" alt="Copy to clipboard">
                     <span class="tooltiptext tooltiptext_pygist_copy">Copy to clipboard</span>
                 </button>
-                <script src="https://gist.github.com/Usef-BH/dfe398e9015f91619834f17fe5765d53.js"></script>
+                <pre class="prettyprint lang-python">
+import requests
+headers = {"Authorization": "Token YOUR_TOKEN_KEY"}
+response = requests.get('http://www.exchangeio.com/api/latest/', headers=headers)
+respJSON = response.json()
+print(respJSON)</pre>
+                <!--script src="https://gist.github.com/Usef-BH/dfe398e9015f91619834f17fe5765d53.js"></script-->
             </section>
             <section class="js_code">
                 <h4>Javascript code sample to fetch the latest currencies exchange rates:</h4>
-                <button class="btn_copy copy_code tooltip" onclick="copy('.js_code .gist-data', '.tooltiptext_jsgist_copy')" onmouseout="resetTextCopy('.tooltiptext_jsgist_copy')"
+                <button class="btn_copy copy_code tooltip" onclick="copy('.lang-javascript', '.tooltiptext_jsgist_copy')" onmouseout="resetTextCopy('.tooltiptext_jsgist_copy')"
                     role="Copy to clipboard">
                     <img src="{% static 'exchange/img/clippy.svg' %}" width="17px" alt="Copy to clipboard">
                     <span class="tooltiptext tooltiptext_jsgist_copy">Copy to clipboard</span>
                 </button>
-                <script src="https://gist.github.com/Usef-BH/b1edfef9aa20707e91d1d71b2278be61.js"></script>
+                <pre class="prettyprint lang-javascript">
+fetch('http://www.exchangeio.com/api/latest/', {
+    method: "GET",
+    headers: {
+        "Authorization": "Token YOUR_TOKEN_KEY"
+    }
+})
+.then(response => response.json())
+.then(console.log)
+.catch(console.error);</pre>
+                <!--script src="https://gist.github.com/Usef-BH/b1edfef9aa20707e91d1d71b2278be61.js"></script-->
             </section>
         </section>
 

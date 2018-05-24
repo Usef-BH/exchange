@@ -867,3 +867,17 @@ code {
         left: calc(calc(100vw - 500px - 20px)/2);
     }
 }
+
+pre.prettyprint {
+    font-size: 12px;
+    padding: 5px 10px;
+    clear: right;
+    overflow: auto;
+    border-radius: 4px;
+}
+
+.highlight {
+    color: teal;
+    padding: 5px;
+    background-color: aliceblue;
+}

@@ -14,9 +14,14 @@ function process() {
     //console.log("Hello from javascript lando!!!!");
     //console.log('select_base:', base_value);
     //console.log('select_target:', target_value);
-    if (amount == '' ) {
+    if (amount == '') {
         return
     }
+    if(isNaN(amount)) {
+        createModal(`${amount} is not a number!`);
+        return
+    }
+
     fetch(`http://192.168.0.171:8000/api/?amount=${amount}&base=${base_value}&symbols=${target_value}`)
         .then(resp => resp.json())
         .then(data => {
