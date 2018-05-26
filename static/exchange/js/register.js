@@ -16,7 +16,7 @@ function submit() {
         let csrfmiddlewaretoken = token_input.value;
         let data = { email, password }
 
-        fetch("http://192.168.0.171:8000/register/", {
+        fetch("http://exchange-env.gihqfqemv2.eu-west-3.elasticbeanstalk.com/register/", {
             method: 'POST',
             credentials: "include",
             headers: {
@@ -56,7 +56,7 @@ function createInfoModal(data) {
         <div class="swal-icon swal-icon--info"></div>      
         <div class="token">
             <button class="btn_copy tooltip koko" role="Copy to clipboard">
-                <img src="http://192.168.0.171:8000/static/exchange/img/clippy.svg" 
+                <img src="http://exchange-env.gihqfqemv2.eu-west-3.elasticbeanstalk.com/static/exchange/img/clippy.svg" 
                 width="17px" alt="Copy to clipboard">
                 <span class="tooltiptext tooltiptext_latest_copy">Copy to clipboard</span>
             </button>
@@ -108,7 +108,7 @@ function createSuccessModal(data) {
         </div>        
         <div class="token">
             <button class="btn_copy tooltip koko" role="Copy to clipboard">
-                <img src="http://192.168.0.171:8000/static/exchange/img/clippy.svg" 
+                <img src="http://exchange-env.gihqfqemv2.eu-west-3.elasticbeanstalk.com/static/exchange/img/clippy.svg" 
                 width="17px" alt="Copy to clipboard">
                 <span class="tooltiptext tooltiptext_latest_copy">Copy to clipboard</span>
             </button>

@@ -22,7 +22,7 @@ function process() {
         return
     }
 
-    fetch(`http://192.168.0.171:8000/api/?amount=${amount}&base=${base_value}&symbols=${target_value}`)
+    fetch(`http://exchange-env.gihqfqemv2.eu-west-3.elasticbeanstalk.com/api/?amount=${amount}&base=${base_value}&symbols=${target_value}`)
         .then(resp => resp.json())
         .then(data => {
             if(data.detail) {
