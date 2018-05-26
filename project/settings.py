@@ -25,7 +25,7 @@ SECRET_KEY = 'ayxwhm*m0-%k5m05z0y4oe5r6j^l12u1bmjn$73wos(w01)@cf'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['exchange-env.gihqfqemv2.eu-west-3.elasticbeanstalk.com']
 
 
 # Application definition
