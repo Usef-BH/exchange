@@ -1,5 +1,4 @@
 db.sqlite3
-rates_*
 *.pyc
 *.pyo
 __pycache__
@@ -11,6 +10,5 @@ project/__pycache__
 # Elastic Beanstalk Files
 .elasticbeanstalk/*
 .ebextensions/*
-./static
 !.elasticbeanstalk/*.cfg.yml
 !.elasticbeanstalk/*.global.yml
