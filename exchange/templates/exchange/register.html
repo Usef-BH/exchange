@@ -1,0 +1,79 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=2.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!--meta name="google-signin-client_id" content="187894433134-n5c6kmrs8d475282dr0t9amv4i00fo4d.apps.googleusercontent.com"-->
+    <link rel="shortcut icon" href="{% static 'exchange/img/favicon.png' %}" type="image/x-icon">
+    <link rel="stylesheet" href="{% static 'exchange/css/docs.css' %}">
+    <!--script src="https://apis.google.com/js/platform.js" async defer></script>
+    <script>
+        function onSignIn(googleUser) {
+            var profile = googleUser.getBasicProfile();
+            let profileData = {};
+            profileData.id = profile.getId();
+            profileData.name = profile.getName();
+            profileData.img = profile.getImageUrl();
+            profileData.email = profile.getEmail();
+            console.log('ID: ' + profileData.id); // Do not send to your backend! Use an ID token instead.
+            console.log('Name: ' + profileData.name);
+            console.log('Image URL: ' + profileData.img);
+            console.log('Email: ' + profileData.email); // This is null if the 'email' scope is not present.
+        }
+    
+        function signOut() {
+            var auth2 = gapi.auth2.getAuthInstance();
+            auth2.signOut().then(function () {
+                console.log('User signed out.');
+            });
+        }
+    </script-->
+    <title>Join Us</title>
+</head>
+
+<body>
+    <header>
+        <a class="logo" href="/">
+            <img src="{% static 'exchange/img/favicon.png' %}" width="40px" alt="logo of exchange.io project">
+        </a>
+        <a href="https://www.ecb.europa.eu/stats/policy_and_exchange_rates/euro_reference_exchange_rates/html/index.en.html" class="data"
+            target="_blank">
+            Data source
+        </a>
+        <a href="/" class="home">Home</a>
+        <a href="/docs/" class="docs">Documentation</a>
+    </header>
+    <main>
+        <section class="intro">
+            <h1>Free Exchange Rates API</h1>
+            <h3>Currency exchange rates
+                <br> and conversion API</h3>
+        </section>
+        <section class="registration_form">
+            <h1>Get Free Key</h1>
+            <div class="form">
+                {% csrf_token %}
+                <input type="email" name="email" pattern="[^ @]*@[^ @]*" placeholder="Email" autofocus 
+                    required maxlength="255" id="email" class="input">
+                <input type="password" name="password" placeholder="Password" required maxlength="255" 
+                id="password" class="input">
+                <input type="submit" class="submit" value="Register">
+            </div>
+                <!--div class="g-signin2" data-onsuccess="onSignIn"></div>
+                <a href="#" class="sign_out" onclick="signOut();">Sign out</a-->
+        </section>
+    </main>
+
+    <footer>
+        <span class="copyrights">&#169; 2018. All rights reserved.</span>
+        <a target="_blank" href="https://twitter.com/usef_bh" class="fontawesome-twitter"></a>
+        <a target="_blank" href="https://github.com/usef-bh" class="fontawesome-github"></a>
+        <a target="_blank" href="mailto:youssefbouhouch2014@gmail.com" class="fontawesome-envelope-alt"></a>
+    </footer>
+    <script src="{% static 'exchange/js/register.js' %}"></script>
+</body>
+
+</html>

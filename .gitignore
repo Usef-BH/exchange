@@ -1,11 +1,14 @@
 db.sqlite3
-rates_*
+
 *.pyc
 *.pyo
+__pycache__
+**/migrations/**
 .vscode
 **/migrations/**
 **/__pycache__/**
 # Elastic Beanstalk Files
 .elasticbeanstalk/*
+.ebextensions/*
 !.elasticbeanstalk/*.cfg.yml
 !.elasticbeanstalk/*.global.yml
