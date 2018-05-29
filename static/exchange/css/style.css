@@ -24,7 +24,7 @@
     src: url(/static/exchange/third_party/fonts/hallo_sans.otf) format("opentype");
     font-weight: 400;
     font-style: normal;
-    font-display: optional
+    font-display: fallback
 }
 
 body {
@@ -590,7 +590,7 @@ h5 {
     grid-row: 4;
     margin: 10px;
     /*grid-column: 10/span 2;*/
-    border: 1px solid #c3c3c3;
+    border: none;
     border-radius: 5px;
 }
 

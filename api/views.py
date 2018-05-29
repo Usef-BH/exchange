@@ -233,12 +233,12 @@ def save_data_db(response, data_type, date=None, start=None, end=None):
         if serializer.is_valid():
             serializer.save()
             data.pop('last_modified')
-            date1 = data.pop('date')
-            resp = {}
-            resp['date'] = date1
-            resp['base'] = 'EUR'
-            resp['rates'] = data
-            return resp
+            #date1 = data.pop('date')
+            #resp = {}
+            #resp['date'] = date1
+            #resp['base'] = 'EUR'
+            #resp['rates'] = data
+            return data
         else:
             print(f"serializer.errors: {serializer.errors}")
             return {}
@@ -279,6 +279,7 @@ def convert(data, base=None, symbols=None, many=False):
 
     if symbols:
         targets = [item.upper() for item in symbols.split(',')]
+        print(f"===========> This is the error prone data: {data}")
         lst = [{'currency': target,
                 'rate': data[target]
                 } for target in targets if target.upper() != 'EUR']
