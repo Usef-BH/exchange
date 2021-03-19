@@ -1,6 +1,6 @@
 bs4==0.0.1
 Django==1.11
 django-cors-headers==2.2.0
-djangorestframework==3.8.2
+djangorestframework==3.11.2
 psycopg2==2.7.4
 requests==2.18.4
